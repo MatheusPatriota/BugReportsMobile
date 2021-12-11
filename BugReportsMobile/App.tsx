@@ -10,6 +10,7 @@ import {
 } from "react-native/Libraries/NewAppScreen";
 import LoginPage from "./src/views/LoginPage";
 import NewUserPage from "./src/views/NewUserPage";
+import RoomCodePage from "./src/views/RoomCodePage";
 import Starting from "./src/views/Starting";
 
 const App = () => {
@@ -22,7 +23,7 @@ const App = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
-      <NewUserPage />
+      <RoomCodePage />
     </SafeAreaView>
   );
 };
