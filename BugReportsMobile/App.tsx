@@ -16,6 +16,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import LoginPage from './src/views/LoginPage';
 import Starting from './src/views/Starting';
 
 const App = () => {
@@ -28,7 +29,7 @@ const App = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Starting />
+      <LoginPage />
     </SafeAreaView>
   );
 };
