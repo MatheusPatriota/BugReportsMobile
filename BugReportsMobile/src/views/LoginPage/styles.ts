@@ -1,43 +1,79 @@
-import styled from "styled-components/native";
+import { StyleSheet } from "react-native";
 
-export const Container = styled.View`
-  width: 100%;
-  height: 100%;
+export const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    height: "100%",
 
-  background: #2b2d42;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+    backgroundColor: "#2b2d42",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  logo: {
+    height: 52.85,
+    width: 251.42,
+    margin: 10,
+  },
+  inputStyles: {
+    height: 50,
+    backgroundColor: "#fff",
+    width: 320,
+    borderColor: "gray",
+    borderWidth: 1,
+    margin: 10,
+    borderRadius: 8,
+    padding: 10,
+  },
+  button: {
+    height: 50,
+    width: 320,
 
-export const LogoBox = styled.Image`
-  height: 52.85px;
-  width: 251.42px;
-  margin: 10px;
-`;
+    alignItems: "center",
+    justifyContent: "center",
 
-export const LoginInput = styled.TextInput`
-  height: 50px;
-  background: #fff;
-  width: 320px;
-  border-color: gray;
-  border-width: 1px;
-  margin: 10px;
-  border-radius: 8px;
-  padding: 10px;
-`;
-
-export const Button = styled.TouchableOpacity`
-  height: 50px;
-  width: 320px;
-
-  align-items: center;
-  justify-content: center;
-
-  background: #0066e8;
-  border-radius: 10px;
-`;
-
-export const TextBox = styled.Text`
-  color: #fff;
-`;
+    backgroundColor: "#0066e8",
+    margin: 10,
+    borderRadius: 10,
+  },
+  text: {
+    color: "#fff",
+  },
+  loginOptions: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    margin: 5,
+    color: "#fff",
+  },
+  circle: {
+    height: 50,
+    width: 50,
+    backgroundColor: "#fff",
+    borderRadius: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  footerContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  footer: {
+    color: "#fff",
+  },
+  buttonFooter: {
+    alignItems: "center",
+    justifyContent: "flex-start",
+    height: 50,
+  },
+  linkNewUser: {
+    marginLeft: 10,
+    alignItems: "center",
+    justifyContent: "flex-end",
+    color: "#0066e8",
+    fontSize: 15,
+    fontWeight: "bold",
+  },
+});

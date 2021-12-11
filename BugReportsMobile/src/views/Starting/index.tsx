@@ -1,13 +1,14 @@
 import React from "react";
-import { Container, ImageBox } from "./styles";
+import { Image, View } from "react-native";
 import Logo from "../../assets/logo.png";
+import { styles } from "./styles";
 
 export default function Starting() {
   return (
     <>
-      <Container>
-        <ImageBox source={Logo} />
-      </Container>
+      <View style={styles.container}>
+        <Image source={Logo} style={styles.logo}/>
+      </View>
     </>
   );
 }

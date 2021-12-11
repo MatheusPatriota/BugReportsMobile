@@ -1,26 +1,18 @@
-import React from 'react';
+import React from "react";
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
-  StyleSheet,
-  Text,
   useColorScheme,
-  View,
-} from 'react-native';
+} from "react-native";
 
 import {
   Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import LoginPage from './src/views/LoginPage';
-import Starting from './src/views/Starting';
+} from "react-native/Libraries/NewAppScreen";
+import LoginPage from "./src/views/LoginPage";
+import Starting from "./src/views/Starting";
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = useColorScheme() === "dark";
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -28,8 +20,8 @@ const App = () => {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Starting />
+      <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
+      <LoginPage />
     </SafeAreaView>
   );
 };
