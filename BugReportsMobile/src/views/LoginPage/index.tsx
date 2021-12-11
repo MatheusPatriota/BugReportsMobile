@@ -1,32 +1,24 @@
 import React from "react";
-import {
-  Button,
-  Image,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import styles from "./styles";
 import Logo from "../../assets/logo.png";
+import { Button, Container, LoginInput, LogoBox, TextBox } from "./styles";
 
 export default function LoginPage() {
   return (
     <>
-      <View style={styles.container}>
-        <Image source={Logo} style={styles.logo} />
-        <TextInput placeholder={"Insira Seu Login"} style={styles.input} />
-        <TextInput placeholder={"Insira Sua Senha"} style={styles.input} />
-        <TouchableOpacity
+      <Container>
+        <LogoBox source={Logo} />
+        <TextBox>Realizar Login</TextBox>
+        <LoginInput placeholder={"Insira Seu Login"} />
+        <LoginInput placeholder={"Insira Sua Senha"} />
+        <Button
           onPress={() => {
             console.log("teste");
           }}
-          style={styles.button}
           accessibilityLabel="Realizar Login no sistema do BugReports"
         >
-          <Text style={styles.textStyle}>Realizar Login</Text>
-        </TouchableOpacity>
-      </View>
+          <TextBox>Realizar Login</TextBox>
+        </Button>
+      </Container>
     </>
   );
 }
