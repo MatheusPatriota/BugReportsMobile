@@ -4,7 +4,7 @@ import Logo from "../../assets/logo.png";
 import { styles } from "./styles";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-export default function LoginPage() {
+export default function LoginPage({navigation}:any) {
   return (
     <>
       <View style={styles.container}>
@@ -21,7 +21,7 @@ export default function LoginPage() {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            console.log("teste");
+           navigation.navigate('RoomCode')
           }}
           accessibilityLabel="Realizar Login no sistema do BugReports"
         >
@@ -37,7 +37,9 @@ export default function LoginPage() {
         </View>
         <View style={styles.footerContainer}>
           <Text style={styles.footer}>É novo aqui?</Text>
-          <TouchableOpacity style={styles.buttonFooter}>
+          <TouchableOpacity style={styles.buttonFooter} onPress={() =>{
+            navigation.navigate('NewUser')
+          }}>
             <Text style={styles.linkNewUser}>Crie uma conta</Text>
           </TouchableOpacity>
         </View>

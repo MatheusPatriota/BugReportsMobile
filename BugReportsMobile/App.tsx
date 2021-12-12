@@ -15,6 +15,10 @@ import ReportsPage from "./src/views/ReportsPage";
 import RoomCodePage from "./src/views/RoomCodePage";
 import Starting from "./src/views/Starting";
 
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 const App = () => {
   const isDarkMode = useColorScheme() === "dark";
 
@@ -23,10 +27,19 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
-      <ReportsPage />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Starting" component={Starting} />
+        <Stack.Screen name="Login" component={LoginPage} />
+        <Stack.Screen name="RoomCode" component={RoomCodePage} />
+        <Stack.Screen name="NewUser" component={NewUserPage} />
+        <Stack.Screen name="Reports" component={ReportsPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    // <SafeAreaView style={backgroundStyle}>
+    //   <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
+    //   <ReportsPage />
+    // </SafeAreaView>
   );
 };
 
