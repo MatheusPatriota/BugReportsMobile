@@ -8,6 +8,7 @@ import {
 import {
   Colors,
 } from "react-native/Libraries/NewAppScreen";
+import Header from "./src/components/Header";
 import LoginPage from "./src/views/LoginPage";
 import NewUserPage from "./src/views/NewUserPage";
 import RoomCodePage from "./src/views/RoomCodePage";
@@ -23,7 +24,7 @@ const App = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
-      <RoomCodePage />
+      <Header />
     </SafeAreaView>
   );
 };
