@@ -11,6 +11,7 @@ import {
 import Header from "./src/components/Header";
 import LoginPage from "./src/views/LoginPage";
 import NewUserPage from "./src/views/NewUserPage";
+import ReportsPage from "./src/views/ReportsPage";
 import RoomCodePage from "./src/views/RoomCodePage";
 import Starting from "./src/views/Starting";
 
@@ -24,7 +25,7 @@ const App = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
-      <Header />
+      <ReportsPage />
     </SafeAreaView>
   );
 };
