@@ -17,6 +17,7 @@ import Starting from "./src/views/Starting";
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Dashboard from "./src/views/Dashboard";
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -34,12 +35,9 @@ const App = () => {
         <Stack.Screen name="RoomCode" component={RoomCodePage} />
         <Stack.Screen name="NewUser" component={NewUserPage} />
         <Stack.Screen name="Reports" component={ReportsPage} />
+        <Stack.Screen name="Dashboard" component={Dashboard} />
       </Stack.Navigator>
     </NavigationContainer>
-    // <SafeAreaView style={backgroundStyle}>
-    //   <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
-    //   <ReportsPage />
-    // </SafeAreaView>
   );
 };
 

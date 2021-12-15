@@ -42,6 +42,11 @@ export default function LoginPage({navigation}:any) {
           }}>
             <Text style={styles.linkNewUser}>Crie uma conta</Text>
           </TouchableOpacity>
+          {/* <TouchableOpacity style={styles.buttonFooter} onPress={() =>{
+            navigation.navigate('Dashboard')
+          }}>
+            <Text style={styles.linkNewUser}>Dashboard</Text>
+          </TouchableOpacity> */}
         </View>
       </View>
     </>
