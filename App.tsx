@@ -17,7 +17,8 @@ import Starting from "./src/views/Starting";
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Dashboard from "./src/views/Dashboard";
+import Dashboard from "./src/views/DashboardPage";
+import NewRoomCode from "./src/views/NewRoomPage";
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
         <Stack.Screen name="NewUser" component={NewUserPage} />
         <Stack.Screen name="Reports" component={ReportsPage} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
+        <Stack.Screen name="NewRoom" component={NewRoomCode} />
       </Stack.Navigator>
     </NavigationContainer>
   );

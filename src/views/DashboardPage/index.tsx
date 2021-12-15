@@ -5,7 +5,7 @@ import Header from "../../components/Header";
 import Room from "../../components/Room";
 import { styles } from "./styles";
 
-export default function Dashboard() {
+export default function DashboardPage() {
   return (
     <>
       <View style={styles.container}>

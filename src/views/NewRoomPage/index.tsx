@@ -4,14 +4,14 @@ import Logo from "../../assets/logo.png";
 import { styles } from "./styles";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-export default function RoomCodePage({navigation}:any) {
+export default function NewRoomCode({navigation}:any) {
   return (
     <>
       <View style={styles.container}>
         <Image source={Logo} style={styles.logo} />
-        <Text style={styles.text}>Entar na sala do Sistema</Text>
+        <Text style={styles.text}>Crie uma nova sala de Projeto</Text>
         <TextInput
-          placeholder={"Digite o código da sala"}
+          placeholder={"Digite o Nome da sala"}
           style={styles.inputStyles}
         />
         <TouchableOpacity
@@ -19,19 +19,11 @@ export default function RoomCodePage({navigation}:any) {
           onPress={() => {
             navigation.navigate('Reports')
           }}
-          accessibilityLabel="Realizar Login no sistema do BugReports"
+          accessibilityLabel="Cadastrar nova sala de Projeto no sistema do BugReports"
         > 
           <Icon name="sign-in" size={22} color="#fff" />
-          <Text style={styles.text}>Entar na Sala</Text>
+          <Text style={styles.text}>Criar Sala</Text>
         </TouchableOpacity>
-        <View style={styles.footerContainer}>
-          <Text style={styles.footer}>Não é sua conta?</Text>
-          <TouchableOpacity style={styles.buttonFooter} onPress={() => {
-            navigation.navigate('Login');
-          }}>
-            <Text style={styles.linkNewUser}>Logout</Text>
-          </TouchableOpacity>
-        </View>
       </View>
     </>
   );
