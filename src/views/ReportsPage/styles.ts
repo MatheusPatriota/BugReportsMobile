@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   },
   newReportButton: {
     marginTop: 10,
-    marginBottom:10,
+    marginBottom: 10,
     height: 50,
     width: 220,
     backgroundColor: "#0066E8",
@@ -30,5 +30,9 @@ export const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 16,
     fontWeight: "bold",
+  },
+  scrollView: {
+    padding: 10,
+    marginBottom: 20.
   },
 });

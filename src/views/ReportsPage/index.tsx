@@ -34,28 +34,30 @@ export default function ReportsPage() {
             <Icon name="plus-circle" size={22} color="#fff" />
             <Text style={styles.buttonContent}>Criar nova Ocorrência</Text>
           </TouchableOpacity>
-          <ScrollView>
-            {(reports.length > 0) ? (
-              reports.map((report: ReportType) => {
-                return (
-                  <Report
-                    description={report.description}
-                    title={report.title}
-                    authorId={report.authorId}
-                    active={report.active}
-                    recived={report.recived}
-                    underInvestigation={report.underInvestigation}
-                    solved={report.solved}
-                    _id={report._id}
-                    created={report.created}
-                  />
-                );
-              })
-            ) : (
-              <Text style={styles.buttonContent}>não existem reports cadastrados</Text>
-            )}
-          </ScrollView>
         </View>
+        <ScrollView style={styles.scrollView}>
+          {reports.length > 0 ? (
+            reports.map((report: ReportType) => {
+              return (
+                <Report
+                  description={report.description}
+                  title={report.title}
+                  authorId={report.authorId}
+                  active={report.active}
+                  recived={report.recived}
+                  underInvestigation={report.underInvestigation}
+                  solved={report.solved}
+                  _id={report._id}
+                  created={report.created}
+                />
+              );
+            })
+          ) : (
+            <Text style={styles.buttonContent}>
+              não existem reports cadastrados
+            </Text>
+          )}
+        </ScrollView>
       </View>
     </>
   );
