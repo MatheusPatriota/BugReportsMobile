@@ -2,6 +2,13 @@ import { StyleSheet } from "react-native";
 
 
 export const styles = StyleSheet.create({
+  title:{
+    fontSize:16,
+    fontWeight: "bold",
+    color: '#000',
+    marginTop: 10,
+    marginBottom: 10,
+  },
   container: {
     backgroundColor: '#FFFF',
     margin: 10,

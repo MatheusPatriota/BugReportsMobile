@@ -19,14 +19,14 @@ export default function AdmRoom() {
         <View style={styles.content}>
           <Text style={styles.title}>Project Name</Text>
           <ScrollView>
+            {/* <Report />
             <Report />
             <Report />
             <Report />
             <Report />
             <Report />
             <Report />
-            <Report />
-            <Report />
+            <Report /> */}
           </ScrollView>
         </View>
       </View>
