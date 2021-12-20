@@ -4,7 +4,7 @@ import Logo from "../../assets/logo.png";
 import { styles } from "./styles";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-export default function NewRoomCode({navigation}:any) {
+export default function NewRoomCode({ navigation }: any) {
   return (
     <>
       <View style={styles.container}>
@@ -17,10 +17,10 @@ export default function NewRoomCode({navigation}:any) {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            navigation.navigate('Reports')
+            navigation.navigate("Reports");
           }}
           accessibilityLabel="Cadastrar nova sala de Projeto no sistema do BugReports"
-        > 
+        >
           <Icon name="sign-in" size={22} color="#fff" />
           <Text style={styles.text}>Criar Sala</Text>
         </TouchableOpacity>

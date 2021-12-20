@@ -23,6 +23,7 @@ export const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 8,
     padding: 10,
+    textAlign: "center",
   },
   button: {
     height: 50,
@@ -80,4 +81,9 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "bold",
   },
+  selectDropdown:{
+    width: 320,
+    borderRadius: 10,
+    backgroundColor: "#fff",
+  }
 });

@@ -5556,6 +5556,11 @@ react-native-screens@^3.10.1:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
+react-native-select-dropdown@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/react-native-select-dropdown/-/react-native-select-dropdown-1.6.0.tgz#b7dbf61408b0bf7c2623ac22e27a85e04ebfc798"
+  integrity sha512-lKBVG1McWOBeeJRFo47yx5HXPkRYdMXFa05gsAqF7N6kx1rawQXHkkt+eO+wrFDAxWOMPn7mSjIi9IKhf11Vow==
+
 react-native-vector-icons@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-9.0.0.tgz#ab38ec6941f3f340d39846f1e8300e59863e2fb1"

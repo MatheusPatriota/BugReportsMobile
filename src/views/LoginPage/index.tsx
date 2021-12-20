@@ -17,6 +17,8 @@ export default function LoginPage({navigation}:any) {
         <TextInput
           placeholder={"Insira Sua Senha"}
           style={styles.inputStyles}
+          autoComplete="password"
+          secureTextEntry={true}
         />
         <TouchableOpacity
           style={styles.button}
