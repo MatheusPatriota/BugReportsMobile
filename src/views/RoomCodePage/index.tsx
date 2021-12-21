@@ -5,10 +5,14 @@ import { styles } from "./styles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import SelectDropdown from "react-native-select-dropdown";
 import api from "../../services/Api";
+import RoomType from "../../components/Room/Room-type";
 
 export default function RoomCodePage({ navigation }: any) {
+  const [roomsData, setRoomsData] = useState<Array<RoomType>>([]);
   const [rooms, setRooms] = useState<Array<string>>([]);
   const [roomsId, setRoomsId] = useState<Array<string>>([]);
+  const [password, setPassword] = useState("");
+  const [selectedRoom, setSelectedRoom] = useState(0);
 
   const loadRooms = () => {
     let auxRoomName: Array<string> = []
@@ -24,6 +28,7 @@ export default function RoomCodePage({ navigation }: any) {
       console.log("dados id : ", auxRoomId);
       setRooms(auxRoomName);
       setRoomsId(auxRoomId);
+      setRoomsData(response.data.res);
     });
   };
 
@@ -39,6 +44,7 @@ export default function RoomCodePage({ navigation }: any) {
           data={rooms}
           onSelect={(selectedItem, index) => {
             console.log(selectedItem, index);
+            setSelectedRoom(index);
           }}
           buttonTextAfterSelection={(selectedItem, index) => {
             // text represented after item is selected
@@ -56,11 +62,18 @@ export default function RoomCodePage({ navigation }: any) {
           style={styles.inputStyles}
           autoComplete="password"
           secureTextEntry={true}
+          value={password}
+          onChangeText={setPassword}
         />
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            navigation.navigate("Reports");
+            if(password === roomsData[selectedRoom].password ){
+
+              navigation.navigate("Reports");
+            }else{
+              console.log('password não compativel')
+            }
           }}
           accessibilityLabel="Realizar Login no sistema do BugReports"
         >
