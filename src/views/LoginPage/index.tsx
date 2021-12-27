@@ -3,8 +3,9 @@ import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Logo from "../../assets/logo.png";
 import { styles } from "./styles";
 import Icon from "react-native-vector-icons/FontAwesome";
+import PasswordInput from "../../components/PasswordInput";
 
-export default function LoginPage({navigation}:any) {
+export default function LoginPage({ navigation }: any) {
   return (
     <>
       <View style={styles.container}>
@@ -14,16 +15,11 @@ export default function LoginPage({navigation}:any) {
           placeholder={"Insira Seu Login"}
           style={styles.inputStyles}
         />
-        <TextInput
-          placeholder={"Insira Sua Senha"}
-          style={styles.inputStyles}
-          autoComplete="password"
-          secureTextEntry={true}
-        />
+        <PasswordInput />
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-           navigation.navigate('RoomCode')
+            navigation.navigate("RoomCode");
           }}
           accessibilityLabel="Realizar Login no sistema do BugReports"
         >
@@ -39,9 +35,12 @@ export default function LoginPage({navigation}:any) {
         </View>
         <View style={styles.footerContainer}>
           <Text style={styles.footer}>É novo aqui?</Text>
-          <TouchableOpacity style={styles.buttonFooter} onPress={() =>{
-            navigation.navigate('NewUser')
-          }}>
+          <TouchableOpacity
+            style={styles.buttonFooter}
+            onPress={() => {
+              navigation.navigate("NewUser");
+            }}
+          >
             <Text style={styles.linkNewUser}>Crie uma conta</Text>
           </TouchableOpacity>
           {/* <TouchableOpacity style={styles.buttonFooter} onPress={() =>{

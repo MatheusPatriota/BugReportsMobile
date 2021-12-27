@@ -1,28 +1,39 @@
 import React, { useEffect, useState } from "react";
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  Image,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Logo from "../../assets/logo.png";
 import { styles } from "./styles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import SelectDropdown from "react-native-select-dropdown";
 import api from "../../services/Api";
 import RoomType from "../../components/Room/Room-type";
+import PasswordInput from "../../components/PasswordInput";
 
 export default function RoomCodePage({ navigation }: any) {
   const [roomsData, setRoomsData] = useState<Array<RoomType>>([]);
   const [rooms, setRooms] = useState<Array<string>>([]);
   const [roomsId, setRoomsId] = useState<Array<string>>([]);
-  const [password, setPassword] = useState("");
   const [selectedRoom, setSelectedRoom] = useState(0);
+  const [password, setPassword] = useState("");
+
+  const callbackFunction = (childData: any) =>{
+    setPassword(childData)
+  }
 
   const loadRooms = () => {
-    let auxRoomName: Array<string> = []
-    let auxRoomId: Array<string> = []
+    let auxRoomName: Array<string> = [];
+    let auxRoomId: Array<string> = [];
     api.get("/rooms").then((response) => {
       console.log("dados brutos: ", response.data.res[0].roomName);
       for (let index = 0; index < response.data.res.length; index++) {
-        auxRoomName.push(response.data.res[index].roomName)
-        auxRoomId.push(response.data.res[index]._id)
-        
+        auxRoomName.push(response.data.res[index].roomName);
+        auxRoomId.push(response.data.res[index]._id);
       }
       console.log("dados name: ", auxRoomName);
       console.log("dados id : ", auxRoomId);
@@ -57,22 +68,15 @@ export default function RoomCodePage({ navigation }: any) {
             return item;
           }}
         />
-        <TextInput
-          placeholder={"Digite a senha da sala"}
-          style={styles.inputStyles}
-          autoComplete="password"
-          secureTextEntry={true}
-          value={password}
-          onChangeText={setPassword}
-        />
+       <PasswordInput parentCallBack = {callbackFunction}/>
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            if(password === roomsData[selectedRoom].password ){
-
+            console.log(password)
+            if (password === roomsData[selectedRoom].password) {
               navigation.navigate("Reports");
-            }else{
-              console.log('password não compativel')
+            } else {
+              Alert.alert("Erro Ao entrar na sala", "Senha Incorreta");
             }
           }}
           accessibilityLabel="Realizar Login no sistema do BugReports"
