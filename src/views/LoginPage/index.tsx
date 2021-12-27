@@ -1,25 +1,68 @@
-import React from "react";
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
+import {
+  Alert,
+  Image,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Logo from "../../assets/logo.png";
 import { styles } from "./styles";
 import Icon from "react-native-vector-icons/FontAwesome";
 import PasswordInput from "../../components/PasswordInput";
+import api from "../../services/Api";
+import UserTypes from "./UserTypes";
 
 export default function LoginPage({ navigation }: any) {
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [userData, setUserData] = useState<UserTypes>();
+
+  const loadUserInfo = async () => {
+    await api
+      .get(`/user/email/${email}`)
+      .then((response) => {
+        console.log(response.data);
+        setUserData(response.data.res);
+      })
+      .catch((error) => {
+        Alert.alert("Erro Ao tentar Logar", "Email Inválido");
+      });
+  };
+
+  const callbackFunction = (childData: any) => {
+    setPassword(childData);
+  };
+
   return (
     <>
       <View style={styles.container}>
         <Image source={Logo} style={styles.logo} />
         <Text style={styles.text}>Realizar Login</Text>
         <TextInput
-          placeholder={"Insira Seu Login"}
+          placeholder={"Insira Seu Email"}
           style={styles.inputStyles}
+          onChangeText={setEmail}
         />
-        <PasswordInput />
+        <PasswordInput parentCallBack={callbackFunction} />
         <TouchableOpacity
           style={styles.button}
-          onPress={() => {
-            navigation.navigate("RoomCode");
+          onPress={async () => {
+            if (email === "" || !email) {
+              Alert.alert("Erro a tentar Logar", "Campo de Email é Necessario");
+            } else if (password === "" || !password) {
+              Alert.alert("Erro a tentar Logar", "Campo de Senha é Necessario");
+            } else {
+              await loadUserInfo();
+              if (userData) {
+                if (password === userData.password) {
+                  navigation.navigate("RoomCode");
+                } else {
+                  Alert.alert("Erro Ao entrar na sala", "Senha Incorreta");
+                }
+              }
+            }
           }}
           accessibilityLabel="Realizar Login no sistema do BugReports"
         >
