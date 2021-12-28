@@ -22,7 +22,9 @@ export default function DashboardPage({navigation}: any) {
         <Header />
         <View style={styles.content}>
           <Text style={styles.title}>Dashboard</Text>
-          <TouchableOpacity style={styles.newReportButton}>
+          <TouchableOpacity style={styles.newReportButton} onPress={() => {
+            navigation.navigate("NewRoom")
+          }}>
             <Icon name="plus-circle" size={22} color="#fff" />
             <Text style={styles.buttonContent}>Criar nova Sala</Text>
           </TouchableOpacity>

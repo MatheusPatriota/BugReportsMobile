@@ -22,6 +22,7 @@ import NewRoomCode from "./src/views/NewRoomPage";
 import AdmRoom from "./src/views/AdmRoom";
 import NewReportPage from "./src/views/NewReportPage";
 import DashboardPage from "./src/views/DashboardPage";
+import NewRoomPage from "./src/views/NewRoomPage";
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -40,7 +41,7 @@ const App = () => {
         <Stack.Screen name="NewUser" component={NewUserPage} />
         <Stack.Screen name="Reports" component={ReportsPage} />
         <Stack.Screen name="Dashboard" component={DashboardPage} />
-        <Stack.Screen name="NewRoom" component={NewRoomCode} />
+        <Stack.Screen name="NewRoom" component={NewRoomPage} />
         <Stack.Screen name="AdminRoom" component={AdmRoom} />
         <Stack.Screen name="NewReport" component={NewReportPage} />
       </Stack.Navigator>
