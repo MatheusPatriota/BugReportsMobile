@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     width: 320,
     borderColor: "gray",
     borderWidth: 1,
-    margin: 10,
+    marginTop: 10,
     borderRadius: 8,
     padding: 10,
   },
@@ -39,8 +39,9 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
   },
   text: {
-    marginLeft: 10,
     color: "#fff",
+    fontWeight: "bold",
+    marginBottom:10,
   },
   loginOptions: {
     display: "flex",
@@ -80,4 +81,16 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "bold",
   },
+  titleIput:{
+    fontWeight: "bold",
+    fontSize:16,
+    color: "#fff",
+    marginTop: 5,
+  },
+  buttonText:{
+    fontWeight: "bold",
+    fontSize:16,
+    color: "#fff",
+    marginLeft: 10,
+  }
 });

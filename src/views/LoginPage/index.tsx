@@ -57,7 +57,11 @@ export default function LoginPage({ navigation }: any) {
               await loadUserInfo();
               if (userData) {
                 if (password === userData.password) {
-                  navigation.navigate("RoomCode", {authorId: userData._id});
+                  if(userData.admin){
+                    navigation.navigate("Dashboard", {authorId: userData._id});
+                  }else{
+                    navigation.navigate("RoomCode", {authorId: userData._id});
+                  }
                 } else {
                   Alert.alert("Erro Ao entrar na sala", "Senha Incorreta");
                 }
