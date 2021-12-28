@@ -7,7 +7,7 @@ import api from "../../services/Api";
 import { styles } from "./styles";
 import ReportType from "../../components/Report/Report-type";
 
-export default function ReportsPage({route}: any) {
+export default function ReportsPage({ route, navigation }: any) {
   const [reports, setReports] = useState([]);
 
   const loadReports = () => {
@@ -31,7 +31,13 @@ export default function ReportsPage({route}: any) {
         <Header />
         <View style={styles.content}>
           <Text style={styles.title}>Project Name</Text>
-          <TouchableOpacity style={styles.newReportButton}>
+          <TouchableOpacity
+            style={styles.newReportButton}
+            onPress={() => navigation.navigate("NewReport",{
+              roomId: route.params.roomId,
+              authorId: route.params.authorId,
+            })}
+          >
             <Icon name="plus-circle" size={22} color="#fff" />
             <Text style={styles.buttonContent}>Criar nova Ocorrência</Text>
           </TouchableOpacity>

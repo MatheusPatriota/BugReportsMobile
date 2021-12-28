@@ -15,7 +15,7 @@ import api from "../../services/Api";
 import RoomType from "../../components/Room/Room-type";
 import PasswordInput from "../../components/PasswordInput";
 
-export default function RoomCodePage({ navigation }: any) {
+export default function RoomCodePage({ navigation, route }: any) {
   const [roomsData, setRoomsData] = useState<Array<RoomType>>([]);
   const [rooms, setRooms] = useState<Array<string>>([]);
   const [roomsId, setRoomsId] = useState<Array<string>>([]);
@@ -75,7 +75,8 @@ export default function RoomCodePage({ navigation }: any) {
             console.log(password)
             if (password === roomsData[selectedRoom].password) {
               navigation.navigate("Reports", {
-                roomId: roomsData[selectedRoom]._id
+                roomId: roomsData[selectedRoom]._id,
+                authorId: route.params.authorId, 
               });
             } else {
               Alert.alert("Erro Ao entrar na sala", "Senha Incorreta");

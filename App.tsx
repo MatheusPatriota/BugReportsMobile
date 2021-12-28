@@ -20,6 +20,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Dashboard from "./src/views/DashboardPage";
 import NewRoomCode from "./src/views/NewRoomPage";
 import AdmRoom from "./src/views/AdmRoom";
+import NewReportPage from "./src/views/NewReportPage";
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="NewRoom" component={NewRoomCode} />
         <Stack.Screen name="AdminRoom" component={AdmRoom} />
+        <Stack.Screen name="NewReport" component={NewReportPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
