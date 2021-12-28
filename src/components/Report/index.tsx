@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Image, Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, TouchableOpacityBase, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import api from "../../services/Api";
 import ReportType from "./Report-type";
@@ -49,7 +49,24 @@ export default function Report(props: ReportType) {
               {author.name || "usuario padrao"}
             </Text>
           </View>
-          <Text style={styles.statusArea}>Status</Text>
+          <View>
+            {props.admin ? (
+              <View style={styles.statusAdmin}>
+                <TouchableOpacity>
+                  <Icon name="trash" size={22} color="#ce4141" style={styles.statusIcon}/>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Icon name="search" size={22} color="#005018" style={styles.statusIcon}/>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Icon name="check" size={22} color="#3700fc" style={styles.statusIcon}/>
+                </TouchableOpacity>
+
+              </View>
+            ) : (
+              <Text style={styles.statusArea}>Status</Text>
+            )}
+          </View>
         </View>
       </View>
     </>

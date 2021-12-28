@@ -49,5 +49,13 @@ export const styles = StyleSheet.create({
   textDefault:{
     marginLeft: 10,
     color: '#000',
+  },
+  statusAdmin:{
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  statusIcon: {
+    marginLeft: 10,
+    marginRight: 10,
   }
 })

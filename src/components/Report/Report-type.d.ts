@@ -8,6 +8,7 @@ type ReportType = {
     solved: boolean,
     underInvestigation: boolean,
     created: Date,
+    admin: boolean,
 }
 
 export default ReportType;

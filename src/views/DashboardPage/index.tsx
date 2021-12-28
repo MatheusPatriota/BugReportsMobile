@@ -33,7 +33,8 @@ export default function DashboardPage({navigation}: any) {
               ? rooms.map((room: any) => {
                   return (
                     <TouchableOpacity onPress={() => navigation.navigate("AdminRoom", {
-                      roomId:room._id
+                      roomId:room._id,
+                      roomName: room.roomName,
                     })}>
                       <Room roomName={room.roomName} roomId={room._id} />
                     </TouchableOpacity>
