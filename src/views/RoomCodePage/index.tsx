@@ -74,7 +74,9 @@ export default function RoomCodePage({ navigation }: any) {
           onPress={() => {
             console.log(password)
             if (password === roomsData[selectedRoom].password) {
-              navigation.navigate("Reports");
+              navigation.navigate("Reports", {
+                roomId: roomsData[selectedRoom]._id
+              });
             } else {
               Alert.alert("Erro Ao entrar na sala", "Senha Incorreta");
             }

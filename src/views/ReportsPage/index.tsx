@@ -7,12 +7,13 @@ import api from "../../services/Api";
 import { styles } from "./styles";
 import ReportType from "../../components/Report/Report-type";
 
-export default function ReportsPage() {
+export default function ReportsPage({route}: any) {
   const [reports, setReports] = useState([]);
 
   const loadReports = () => {
+    console.log(route.params.roomId);
     api
-      .get(`/reports`)
+      .get(`/reports/${route.params.roomId}`)
       .then((response) => {
         setReports(response.data.res);
       })
