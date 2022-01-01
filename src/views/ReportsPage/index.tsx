@@ -33,10 +33,12 @@ export default function ReportsPage({ route, navigation }: any) {
           <Text style={styles.title}>Project Name</Text>
           <TouchableOpacity
             style={styles.newReportButton}
-            onPress={() => navigation.navigate("NewReport",{
-              roomId: route.params.roomId,
-              authorId: route.params.authorId,
-            })}
+            onPress={() =>
+              navigation.navigate("NewReport", {
+                roomId: route.params.roomId,
+                authorId: route.params.authorId,
+              })
+            }
           >
             <Icon name="plus-circle" size={22} color="#fff" />
             <Text style={styles.buttonContent}>Criar nova Ocorrência</Text>
@@ -44,9 +46,11 @@ export default function ReportsPage({ route, navigation }: any) {
         </View>
         <ScrollView style={styles.scrollView}>
           {reports.length > 0 ? (
-            reports.map((report: ReportType) => {
+            reports.map((report: ReportType, index: number) => {
               return (
                 <Report
+                  key={index}
+                  admin={false}
                   description={report.description}
                   title={report.title}
                   authorId={report.authorId}

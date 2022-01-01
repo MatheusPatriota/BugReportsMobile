@@ -6,6 +6,11 @@ import Report from "../../components/Report";
 import api from "../../services/Api";
 import { styles } from "./styles";
 import ReportType from "../../components/Report/Report-type";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import LoginPage from "../LoginPage";
+import NewUserPage from "../NewUserPage";
+
+const Tab = createBottomTabNavigator();
 
 export default function ReportsPage({ route, navigation }: any) {
   const [reports, setReports] = useState([]);
@@ -34,9 +39,10 @@ export default function ReportsPage({ route, navigation }: any) {
         </View>
         <ScrollView style={styles.scrollView}>
           {reports.length > 0 ? (
-            reports.map((report: ReportType) => {
+            reports.map((report: ReportType, index: number) => {
               return (
                 <Report
+                  key={index}
                   description={report.description}
                   title={report.title}
                   authorId={report.authorId}
@@ -57,6 +63,10 @@ export default function ReportsPage({ route, navigation }: any) {
           )}
         </ScrollView>
       </View>
+      {/* <Tab.Navigator>
+        <Tab.Screen name="Home" component={LoginPage} />
+        <Tab.Screen name="Settings" component={NewUserPage} />
+      </Tab.Navigator> */}
     </>
   );
 }

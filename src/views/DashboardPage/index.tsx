@@ -6,7 +6,7 @@ import Room from "../../components/Room";
 import api from "../../services/Api";
 import { styles } from "./styles";
 
-export default function DashboardPage({navigation}: any) {
+export default function DashboardPage({ navigation }: any) {
   const [rooms, setRooms] = useState([]);
 
   const loadRooms = () => {
@@ -22,20 +22,28 @@ export default function DashboardPage({navigation}: any) {
         <Header />
         <View style={styles.content}>
           <Text style={styles.title}>Dashboard</Text>
-          <TouchableOpacity style={styles.newReportButton} onPress={() => {
-            navigation.navigate("NewRoom")
-          }}>
+          <TouchableOpacity
+            style={styles.newReportButton}
+            onPress={() => {
+              navigation.navigate("NewRoom");
+            }}
+          >
             <Icon name="plus-circle" size={22} color="#fff" />
             <Text style={styles.buttonContent}>Criar nova Sala</Text>
           </TouchableOpacity>
           <ScrollView>
             {rooms != []
-              ? rooms.map((room: any) => {
+              ? rooms.map((room: any, index: number) => {
                   return (
-                    <TouchableOpacity onPress={() => navigation.navigate("AdminRoom", {
-                      roomId:room._id,
-                      roomName: room.roomName,
-                    })}>
+                    <TouchableOpacity
+                      onPress={() =>
+                        navigation.navigate("AdminRoom", {
+                          roomId: room._id,
+                          roomName: room.roomName,
+                        })
+                      }
+                      key={index}
+                    >
                       <Room roomName={room.roomName} roomId={room._id} />
                     </TouchableOpacity>
                   );
