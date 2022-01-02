@@ -1,27 +1,24 @@
 import React, { useEffect, useState } from "react";
-import {
-  Alert,
-  Image,
-  Text,
-  TouchableOpacity,
-  TouchableOpacityBase,
-  View,
-} from "react-native";
+import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import api from "../../services/Api";
 import ReportType from "./Report-type";
 import { styles } from "./styles";
+import { useNavigation } from '@react-navigation/native';
+
 
 type AuthorType = {
   name: string;
   avatar: string;
 };
 
-export default function Report(props: ReportType) {
+export default function Report( props: ReportType) {
   const [author, setAuthor] = useState<AuthorType>({
     name: "User",
     avatar: "avatar",
   });
+
+  const navigation:any = useNavigation();
 
   const loadAuthor = () => {
     api
@@ -40,7 +37,15 @@ export default function Report(props: ReportType) {
   useEffect(() => loadAuthor(), []);
   return (
     <>
-      <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        activeOpacity={0.9}
+        onPress={() => navigation.navigate("ReportDetailsPage", {
+            reportId: props._id,
+            authorId: props.authorId,
+          })
+        }
+      >
         <Text style={styles.title}>{props.title}</Text>
         <Text style={styles.description}>{props.description}</Text>
         <View style={styles.footer}>
@@ -145,7 +150,7 @@ export default function Report(props: ReportType) {
             )}
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     </>
   );
 }

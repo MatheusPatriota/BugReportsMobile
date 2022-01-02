@@ -14,6 +14,7 @@ import AdmRoom from "./src/views/AdmRoom";
 import NewReportPage from "./src/views/NewReportPage";
 import DashboardPage from "./src/views/DashboardPage";
 import NewRoomPage from "./src/views/NewRoomPage";
+import ReportDetailsPage from "./src/views/ReportDetailsPage";
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -69,6 +70,11 @@ const App = () => {
         <Stack.Screen
           name="NewReport"
           component={NewReportPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ReportDetailsPage"
+          component={ReportDetailsPage}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
