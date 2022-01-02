@@ -126,8 +126,22 @@ export default function Report(props: ReportType) {
                   />
                 </TouchableOpacity>
               </View>
+            ) : props.solved ? (
+              <Icon
+                name="check"
+                size={22}
+                color="#3700fc"
+                style={styles.statusIcon}
+              />
+            ) : props.underInvestigation ? (
+              <Icon
+                name="search"
+                size={22}
+                color="#005018"
+                style={styles.statusIcon}
+              />
             ) : (
-              <Text style={styles.statusArea}>Status</Text>
+              <Text>Recebido</Text>
             )}
           </View>
         </View>
