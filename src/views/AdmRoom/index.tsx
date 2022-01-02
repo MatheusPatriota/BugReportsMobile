@@ -10,6 +10,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import LoginPage from "../LoginPage";
 import NewUserPage from "../NewUserPage";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import TabBar from "../../components/TabBar";
 
 const Tab = createBottomTabNavigator();
 
@@ -63,11 +64,8 @@ export default function ReportsPage({ route, navigation }: any) {
             </Text>
           )}
         </ScrollView>
+        <TabBar/>
       </View>
-      {/* <Tab.Navigator>
-        <Tab.Screen name="Home" component={LoginPage} />
-        <Tab.Screen name="Settings" component={NewUserPage} />
-      </Tab.Navigator> */}
     </>
   );
 }
