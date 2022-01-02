@@ -19,8 +19,8 @@ export default function LoginPage({ navigation }: any) {
   const [email, setEmail] = useState("");
   const [userData, setUserData] = useState<UserTypes>();
 
-  const loadUserInfo = async () => {
-    await api
+  const loadUserInfo = () => {
+    api
       .get(`/user/email/${email}`)
       .then((response) => {
         console.log(response.data);
@@ -48,19 +48,21 @@ export default function LoginPage({ navigation }: any) {
         <PasswordInput parentCallBack={callbackFunction} />
         <TouchableOpacity
           style={styles.button}
-          onPress={async () => {
+          onPress={() => {
             if (email === "" || !email) {
               Alert.alert("Erro a tentar Logar", "Campo de Email é Necessario");
             } else if (password === "" || !password) {
               Alert.alert("Erro a tentar Logar", "Campo de Senha é Necessario");
             } else {
-              await loadUserInfo();
+              loadUserInfo();
               if (userData) {
                 if (password === userData.password) {
-                  if(userData.admin){
-                    navigation.navigate("Dashboard", {authorId: userData._id});
-                  }else{
-                    navigation.navigate("RoomCode", {authorId: userData._id});
+                  if (userData.admin) {
+                    navigation.navigate("Dashboard", {
+                      authorId: userData._id,
+                    });
+                  } else {
+                    navigation.navigate("RoomCode", { authorId: userData._id });
                   }
                 } else {
                   Alert.alert("Erro Ao entrar na sala", "Senha Incorreta");
