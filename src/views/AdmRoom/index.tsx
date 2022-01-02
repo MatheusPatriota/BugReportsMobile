@@ -7,20 +7,22 @@ import api from "../../services/Api";
 import { styles } from "./styles";
 import ReportType from "../../components/Report/Report-type";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import LoginPage from "../LoginPage";
-import NewUserPage from "../NewUserPage";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TabBar from "../../components/TabBar";
 
-const Tab = createBottomTabNavigator();
 
 export default function ReportsPage({ route, navigation }: any) {
   const [reports, setReports] = useState([]);
+  const [filter, setFilter] = useState("all");
+
+  const callbackFunction = (childData: any) => {
+    setFilter(childData);
+  };
+
 
   const loadReports = () => {
     console.log(route.params.roomId);
     api
-      .get(`/reports/${route.params.roomId}`)
+      .get(`/reports/${route.params.roomId}/filter/${filter}`)
       .then((response) => {
         setReports(response.data.res);
       })
@@ -31,7 +33,7 @@ export default function ReportsPage({ route, navigation }: any) {
 
   useEffect(() => {
     loadReports();
-  }, []); // useEffect will run once and when id changes
+  }, [filter]); // useEffect will run once and when id changes
   return (
     <>
       <View style={styles.container}>
@@ -64,7 +66,7 @@ export default function ReportsPage({ route, navigation }: any) {
             </Text>
           )}
         </ScrollView>
-        <TabBar/>
+        <TabBar parentCallBack={callbackFunction} />
       </View>
     </>
   );
