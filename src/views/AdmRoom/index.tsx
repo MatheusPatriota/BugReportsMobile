@@ -9,6 +9,7 @@ import ReportType from "../../components/Report/Report-type";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import LoginPage from "../LoginPage";
 import NewUserPage from "../NewUserPage";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Tab = createBottomTabNavigator();
 
